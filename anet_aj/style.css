@@ -1,0 +1,487 @@
+/* ===========================
+   SERPENTE — Shared styles
+   =========================== */
+
+:root {
+  --olive: #7f8b5b;
+  --olive-light: #a2ad7b;
+  --olive-dark: #5d6841;
+  --offwhite: #fcf9f1;
+  --cream: #e4dfd7;
+  --wine: #9a1d1e;
+  --wine-soft: #af474c;
+  --ink: #1a1a1a;
+  --muted: #6b6b6b;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Lora', Georgia, serif;
+  background: var(--offwhite);
+  color: var(--ink);
+  line-height: 1.65;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Grain overlay across all pages */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' /%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.35'/%3E%3C/svg%3E");
+  opacity: 0.1;
+  pointer-events: none;
+  z-index: 9999;
+  mix-blend-mode: multiply;
+}
+
+/* ===== TOP NAVIGATION ===== */
+.top-nav {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  padding: 1.2rem 2rem;
+  background: var(--offwhite);
+  border-bottom: 1px solid rgba(127, 139, 91, 0.2);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+}
+
+.top-nav a {
+  color: var(--ink);
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.top-nav a:hover { color: var(--olive); }
+
+.nav-brand {
+  font-family: 'Bowlby One', sans-serif;
+  font-size: 1.1rem;
+  color: var(--olive);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.nav-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+/* ===== PAGE CONTAINER ===== */
+.page {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 4rem 2rem 6rem;
+  position: relative;
+  z-index: 2;
+}
+
+.page-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 1.5rem;
+  display: inline-block;
+  padding-bottom: 0.4rem;
+  border-bottom: 2px solid var(--olive);
+}
+
+/* ===== TYPOGRAPHY ===== */
+h1.page-title {
+  font-family: 'Bowlby One', sans-serif;
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  line-height: 1.05;
+  color: var(--olive);
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  margin-bottom: 2rem;
+}
+
+h2.section-title {
+  font-family: 'Bowlby One', sans-serif;
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  line-height: 1.1;
+  color: var(--olive-dark);
+  text-transform: uppercase;
+  letter-spacing: -0.005em;
+  margin: 3rem 0 1.2rem;
+}
+
+h3.sub-title {
+  font-family: 'Bowlby One', sans-serif;
+  font-size: clamp(1.05rem, 1.5vw, 1.25rem);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--olive-dark);
+  margin: 2rem 0 0.6rem;
+}
+
+p {
+  font-size: clamp(1rem, 1.2vw, 1.1rem);
+  margin: 0.9rem 0;
+  max-width: 64ch;
+}
+
+p.lead {
+  font-size: clamp(1.15rem, 1.5vw, 1.32rem);
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+}
+
+blockquote {
+  font-family: 'Lora', serif;
+  font-style: italic;
+  font-size: clamp(1.2rem, 1.8vw, 1.45rem);
+  line-height: 1.4;
+  color: var(--olive-dark);
+  border-left: 4px solid var(--olive);
+  padding: 0.5rem 0 0.5rem 1.5rem;
+  margin: 1.8rem 0;
+  max-width: 40ch;
+}
+
+strong { color: var(--olive); font-weight: 600; }
+em { font-style: italic; }
+a { color: var(--olive); }
+a:hover { color: var(--olive-dark); }
+
+/* ===== IMAGES ===== */
+figure {
+  margin: 2rem 0;
+  width: 100%;
+}
+
+figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 600px;
+  object-fit: contain;
+  background: var(--offwhite);
+}
+
+figcaption {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.78rem;
+  color: var(--muted);
+  margin-top: 0.6rem;
+  text-align: center;
+  letter-spacing: 0.04em;
+}
+
+figure.no-bg img { background: transparent; }
+
+/* ===== HOME — TILES ===== */
+.home-hero {
+  text-align: left;
+  padding: 6rem 2rem 3rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.home-hero h1 {
+  font-family: 'Bowlby One', sans-serif;
+  font-size: clamp(4rem, 12vw, 9rem);
+  line-height: 1;
+  color: var(--olive);
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  margin: 1rem 0;
+}
+
+.home-hero p.lead {
+  font-style: italic;
+  max-width: 36ch;
+}
+
+.tiles {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
+  max-width: 1100px;
+  margin: 2rem auto 6rem;
+  padding: 0 2rem;
+}
+
+.tile {
+  background: var(--offwhite);
+  border: 1px solid rgba(127, 139, 91, 0.3);
+  padding: 2rem 1.6rem;
+  text-decoration: none;
+  color: var(--ink);
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  transition: transform 0.18s ease, background 0.18s ease, border-color 0.18s ease;
+}
+
+.tile:hover {
+  background: var(--cream);
+  border-color: var(--olive);
+  transform: translateY(-3px);
+}
+
+.tile-num {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  color: var(--olive);
+  margin-bottom: 0.4rem;
+}
+
+.tile-title {
+  font-family: 'Bowlby One', sans-serif;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  color: var(--olive-dark);
+  line-height: 1.05;
+}
+
+.tile-desc {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: var(--ink);
+  margin: 0.4rem 0 0;
+}
+
+.tile-arrow {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.8rem;
+  margin-top: 1rem;
+  color: var(--olive);
+  letter-spacing: 0.1em;
+}
+
+/* ===== REASONS / CARDS GRID ===== */
+.reasons {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin: 2rem 0 1rem;
+}
+
+.reason {
+  background: rgba(127, 139, 91, 0.06);
+  padding: 1.3rem 1.1rem;
+  border-top: 4px solid var(--olive);
+}
+
+.reason-num {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.7rem;
+  color: var(--olive);
+  letter-spacing: 0.15em;
+  margin-bottom: 0.5rem;
+}
+
+.reason-title {
+  font-family: 'Bowlby One', sans-serif;
+  font-size: 1rem;
+  text-transform: uppercase;
+  color: var(--olive-dark);
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.02em;
+  line-height: 1.15;
+}
+
+.reason p {
+  font-size: 0.88rem;
+  margin: 0;
+  line-height: 1.5;
+}
+
+@media (max-width: 720px) {
+  .reasons { grid-template-columns: 1fr; }
+}
+
+/* ===== OWNER CARDS ===== */
+.owners-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.6rem;
+  margin: 2rem 0;
+}
+
+.owner-card {
+  background: rgba(127, 139, 91, 0.06);
+  padding: 1.4rem;
+  border-left: 4px solid var(--olive);
+}
+
+.owner-name {
+  font-family: 'Bowlby One', sans-serif;
+  font-size: 1.3rem;
+  text-transform: uppercase;
+  color: var(--olive);
+  margin-bottom: 0.4rem;
+  letter-spacing: 0.02em;
+}
+
+.owner-role {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--muted);
+  margin-bottom: 0.8rem;
+}
+
+.owner-card p {
+  font-size: 0.92rem;
+  margin: 0.5rem 0 0;
+  line-height: 1.55;
+}
+
+@media (max-width: 720px) {
+  .owners-grid { grid-template-columns: 1fr; gap: 1rem; }
+}
+
+/* ===== VALUES GRID (5 pillars) ===== */
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  margin: 2.5rem 0;
+}
+
+.value-card {
+  background: var(--olive);
+  color: var(--offwhite);
+  padding: 1.6rem 1.3rem;
+}
+
+.value-card .reason-num,
+.value-card .reason-title { color: var(--offwhite); }
+
+.value-card p {
+  color: var(--offwhite);
+  font-size: 0.9rem;
+  margin: 0.4rem 0 0;
+}
+
+/* ===== COLOUR PALETTE ===== */
+.palette {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.4rem;
+  margin: 1.5rem 0 2rem;
+}
+.swatch {
+  aspect-ratio: 5 / 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0.8rem;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.7rem;
+  color: var(--offwhite);
+  line-height: 1.3;
+}
+.swatch-label {
+  font-size: 0.62rem;
+  opacity: 0.8;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.swatch.s1 { background: var(--olive); }
+.swatch.s2 { background: var(--offwhite); color: var(--olive-dark); border: 1px solid var(--olive); }
+.swatch.s3 { background: var(--wine); }
+.swatch.s4 { background: var(--olive-light); }
+.swatch.s5 { background: var(--cream); color: var(--olive-dark); border: 1px solid var(--olive); }
+.swatch.s6 { background: var(--wine-soft); }
+
+/* ===== FONT SAMPLES ===== */
+.font-sample {
+  padding: 1.2rem 1.5rem;
+  margin: 1rem 0 0.4rem;
+  background: rgba(127, 139, 91, 0.06);
+  border-left: 4px solid var(--olive);
+}
+.font-sample.thunder {
+  font-family: 'Bowlby One', sans-serif;
+  font-size: 2.2rem;
+  text-transform: uppercase;
+  line-height: 1;
+  color: var(--olive);
+}
+.font-sample.mono {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.95rem;
+  color: var(--ink);
+  line-height: 1.7;
+}
+.font-meta {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--muted);
+  margin: 0 0 1.5rem;
+}
+
+/* ===== PAGE NAVIGATION (prev/next) ===== */
+.page-nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 5rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(127, 139, 91, 0.25);
+}
+
+.page-nav a {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+  color: var(--olive);
+  padding: 0.6rem 1rem;
+  border: 1px solid var(--olive);
+  background: transparent;
+  transition: background 0.18s ease, color 0.18s ease;
+}
+
+.page-nav a:hover {
+  background: var(--olive);
+  color: var(--offwhite);
+}
+
+.page-nav a.disabled {
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+/* ===== FOOTER ===== */
+.footer {
+  text-align: center;
+  padding: 3rem 2rem;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.75rem;
+  color: var(--muted);
+  letter-spacing: 0.1em;
+  border-top: 1px solid rgba(127, 139, 91, 0.2);
+  margin-top: 4rem;
+}
+
+/* ===== MOBILE ===== */
+@media (max-width: 600px) {
+  .top-nav { padding: 1rem 1.2rem; font-size: 0.7rem; }
+  .nav-brand { font-size: 0.9rem; }
+  .page { padding: 2.5rem 1.2rem 4rem; }
+  .tiles { padding: 0 1.2rem; }
+  .home-hero { padding: 3rem 1.2rem 2rem; }
+}
