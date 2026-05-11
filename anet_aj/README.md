@@ -35,4 +35,4 @@ serpente/
 
 ## Source
 
-Bromovská, A. (2026). *Vizuální identita restaurace Serpente*. Bachelor thesis, VŠKK. Supervisor: MgA. Jiří Chyla.
+Bromovská, A. (2026). *Vizuální identita restaurace Serpente*. VŠKK.
